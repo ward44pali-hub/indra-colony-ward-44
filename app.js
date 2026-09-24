@@ -1,5 +1,5 @@
 const API_URL = 'https://script.google.com/macros/s/AKfycbzvyQZsdZO5IM3-kMApnHlcyD-D8oQOC_BrGpjicHOFlMRkcaFju4xc6ie991Qp0WSpTQ/exec';
-const WARD_WHATSAPP = '917240610313'; // Replace with the Ward Parshad WhatsApp number.
+const WARD_WHATSAPP = '917737155269'; // Replace with the Ward Parshad WhatsApp number.
 let imageFiles = [], videoFile = null;
 
 const $ = id => document.getElementById(id);

@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Jan Seva Yojana | Ward No. 44 | Indra Colony, Pali</title>
+  <meta name="description" content="Citizen issue registration and complaint tracking portal for Ward No. 44, Indra Colony, Pali.">
+    <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="inc-favicon.png">
+  <link rel="apple-touch-icon" href="inc-favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand-wrap">
+      <img class="logo" src="inc-hand-logo.png" alt="INC hand symbol">
+      <div class="brand-title">
+        <div class="main-title">INDRA COLONY, PALI</div>
+        <div class="sub-title">Ward No. 44 <span>|</span> Jan Seva Yojana</div>
+      </div>
+      <div class="parshad-head">
+        <small>Ward Parshad</small>
+        <strong>MOINUDDIN</strong>
+        <span>Indian National Congress (INC)</span>
+      </div>
+    </div>
+    <nav class="nav">
+      <a class="active" href="#home">⌂ <span>Home</span></a>
+      <a href="#register">▣ <span>Register Issue</span></a>
+      <a href="#track">⌕ <span>Track Status</span></a>
+      
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-left">
+        <img src="moinuddin.png" alt="" class="hero-logo">
+        <div>
+          <div class="hero-kicker">JAN SEVA YOJANA</div>
+          <h1>INDRA COLONY, PALI</h1>
+          <h2>Ward No. 44 <span>|</span> Citizen Issue Portal</h2>
+          <div class="hero-rule"></div>
+          <p>आपकी समस्या &nbsp; | &nbsp; हमारी जिम्मेदारी</p>
+        </div>
+      </div>
+      <div class="hero-quote">
+        <div class="quote-mark">“</div>
+        <div>
+          <div class="hindi">जन सेवा के लिए<br>समस्या दर्ज करें</div>
+          <div class="quote-by">Ward Parshad — Moinuddin</div>
+          <small>Ward No. 44 · Indra Colony, Pali</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="portal-grid">
+      <div class="card register-card" id="register">
+        <div class="card-head green-head">
+          <div class="head-icon">✎</div>
+          <div>
+            <h2>Register Your Issue</h2>
+            <p>Fill the form and submit your complaint to Ward Parshad.</p>
+          </div>
+        </div>
+
+        <form id="complaintForm">
+          <div class="field">
+            <label>Name <em>*</em></label>
+            <input name="name" required placeholder="Enter your full name">
+          </div>
+          <div class="field">
+            <label>Mobile No. <em>*</em></label>
+            <input name="mobile" required pattern="[0-9]{10}" inputmode="numeric" placeholder="Enter your mobile number">
+          </div>
+          <div class="field">
+            <label>Area / Location <em>*</em></label>
+            <input name="location" required placeholder="Enter area, street or landmark">
+          </div>
+          <div class="gps-panel">
+            <div class="gps-copy">
+              <div class="gps-title">⌖ Current GPS Location</div>
+              <div id="gpsStatus" class="gps-status">Location not captured</div>
+            </div>
+            <button type="button" id="getGps" class="gps-btn">Use My Current Location</button>
+            <a id="gpsMapLink" class="gps-map-link hidden" target="_blank" rel="noopener">Open on Google Maps ↗</a>
+            <input type="hidden" id="latitude" name="latitude">
+            <input type="hidden" id="longitude" name="longitude">
+            <input type="hidden" id="gpsAccuracy" name="gpsAccuracy">
+          </div>
+
+          <div class="field">
+            <label>Issue Category <em>*</em></label>
+            <select name="category" required>
+              <option value="">Select issue category</option>
+              <option>Road / Pothole</option>
+              <option>Street Light</option>
+              <option>Water Supply</option>
+              <option>Drainage / Sewer</option>
+              <option>Garbage / Cleanliness</option>
+              <option>Public Park</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Describe Your Problem <em>*</em></label>
+            <textarea name="description" required rows="4" placeholder="Describe your problem in detail..."></textarea>
+          </div>
+
+          <div class="uploads media-actions">
+            <div class="upload-box media-box">
+              <span class="upload-icon">▧</span>
+              <strong>Photo / Image</strong>
+              <small>Take a photo with camera or choose from phone gallery.</small>
+              <div class="media-buttons">
+                <button id="openPhotoCamera" type="button" class="choose camera-btn">📷 Take Photo</button>
+                <label class="choose">🖼 Upload Photo
+                  <input id="imageInput" type="file" accept="image/*" multiple hidden>
+                </label>
+              </div>
+              <span id="imageName" class="file-name">No photo selected</span>
+            </div>
+            <div class="upload-box media-box">
+              <span class="upload-icon">▣</span>
+              <strong>Video</strong>
+              <small>Record a video with camera or choose one from your phone.</small>
+              <div class="media-buttons">
+                <button id="openVideoCamera" type="button" class="choose camera-btn">🎥 Record Video</button>
+                <label class="choose">🎬 Upload Video
+                  <input id="videoInput" type="file" accept="video/*" capture="environment" hidden>
+                </label>
+              </div>
+              <span id="videoName" class="file-name">No video selected</span>
+            </div>
+          </div>
+          <div class="media-note">Camera mode uses a low-memory in-page camera (photo up to 1280px; video 640×480 at a low bitrate). Gallery uploads are also supported. Media is uploaded to your Google Drive after the complaint is registered.</div>
+
+          <div id="mediaPreview" class="media-preview"></div>
+          <div id="mediaUploadStatus" class="media-upload-status" aria-live="polite"></div>
+          <button class="submit-btn" type="submit">➤ &nbsp; Submit Complaint</button>
+          <p class="form-note">Your submitted information is used for issue registration and follow-up.</p>
+        </form>
+
+        <div id="successBox" class="success hidden">
+          <div class="success-icon">✓</div>
+          <div>
+            <strong>Complaint Registered Successfully</strong>
+            <p>Your problem will be resolved within 3 to 7 days. If additional time is required, it may take up to 1 month.
+आपकी समस्या 3 से 7 दिनों के भीतर हल करने का हमारा प्रयास रहेगा। विशेष परिस्थिति में समाधान में अधिकतम 1 माह तक लग सकता है।</p>
+            <small>Complaint ID: <b id="newId"></b></small>
+            <div class="success-actions">
+              <button id="sendComplaintWhatsApp" type="button" class="wa-success-btn">◉ Send Complaint No. on WhatsApp</button>
+              <button id="retryMediaBtn" type="button" class="retry-media-btn hidden">↻ Retry Media Upload</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="middle-column">
+        <div class="card how-card">
+          <div class="section-title">⚙ <strong>How It Works?</strong></div>
+          <div class="steps">
+            <div class="step">
+              <div class="step-circle orange">▤</div>
+              <b>1. Register Issue</b>
+              <small>Fill the form & upload image/video</small>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step">
+              <div class="step-circle green">◉</div>
+              <b>2. WhatsApp Alert</b>
+              <small>Issue details prepared for Ward Parshad</small>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step">
+              <div class="step-circle darkgreen">⚙</div>
+              <b>3. Action Taken</b>
+              <small>Team reviews and works on the issue</small>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step">
+              <div class="step-circle green">✓</div>
+              <b>4. Problem Solved</b>
+              <small>Status is updated for the resident</small>
+            </div>
+          </div>
+          <div class="promise"><span>◷</span><div><b>Your Problem will be Solved</b><strong>Within 3 to 7 Days.</strong><small>In special circumstances, resolution may take up to 1 month.<br>विशेष परिस्थितियों में समाधान में अधिकतम 1 माह तक लग सकता है।</small></div></div>
+        </div>
+
+        <div class="card track-card" id="track">
+          <div class="section-title">⌕ <strong>Track Your Complaint</strong></div>
+          <p>Enter your complaint ID to check the current status.</p>
+          <div class="track-row">
+            <input id="trackId" placeholder="Enter Complaint ID (e.g. W44-2026-0001)">
+            <button id="trackBtn">Track</button>
+          </div>
+          <div id="trackResult"></div>
+        </div>
+
+        <div class="card status-card">
+          <div class="section-title">▣ <strong>Complaint Status</strong></div>
+          <div class="status-line">
+            <div><span class="status-dot orange">▤</span><b>Registered</b><small>Your complaint is received</small></div>
+            <i>→</i>
+            <div><span class="status-dot amber">◉</span><b>In Progress</b><small>Our team is working on it</small></div>
+            <i>→</i>
+            <div><span class="status-dot green">✓</span><b>Solved</b><small>Issue has been resolved</small></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="right-column">
+        <div class="card whatsapp-card">
+          <div class="wa-icon">◉</div>
+          <div>
+            <h3>Get Instant Update on WhatsApp</h3>
+            <p>After registration, complaint details can be shared with the Ward Parshad on WhatsApp.</p>
+          </div>
+          <button id="waChat" class="wa-btn">◉ &nbsp; Chat on WhatsApp <span>›</span></button>
+          <small class="wa-help">WhatsApp opens immediately after registration with the Complaint ID and issue details pre-filled.</small>
+        </div>
+
+        <div class="card parshad-card">
+          <img src="inc-hand-logo.png" alt="INC hand symbol">
+          <div>
+            <small>Ward Parshad</small>
+            <h3>MOINUDDIN</h3>
+            <p>Ward No. 44, Indra Colony, Pali</p>
+            <b>Indian National Congress (INC)</b>
+          </div>
+          <div class="tricolor-line"><i></i><i></i><i></i></div>
+          <div class="mini-links"><span>♟ Seva</span><span>▥ Vikas</span><span>⌖ Pali</span></div>
+        </div>
+
+        <div class="card recent-card">
+          <div class="recent-head"><div>⚑ <strong>Recent Complaints</strong></div><button id="viewAll" type="button">Refresh</button></div>
+          <div id="recentList"></div>
+        </div>
+      </aside>
+    </section>
+
+  </main>
+
+  <footer>
+    <div><img src="inc-hand-logo.png" alt=""> <span><b>Jan Seva Yojana</b><small>Ward No. 44 · Indra Colony, Pali</small></span></div>
+    <span>Citizen Issue Registration Portal</span>
+  
+<div class="footer-credit">Designed by E-Tech Founder MOHD SOHAIL • Contact: 7240610313</div>
+
+</footer>
+
+  <div id="welcomeModal" class="welcome-modal hidden" aria-hidden="true">
+    <div class="welcome-card" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+      <button id="closeWelcome" class="welcome-close" type="button" aria-label="Close">✕</button>
+      <div class="welcome-badge">WARD 44 · JAN SEVA YOJANA</div>
+      <div class="welcome-icon">🤝</div>
+      <div class="welcome-slides" id="welcomeSlides">
+        <section class="welcome-slide active">
+          <div class="welcome-kicker">WELCOME TO</div>
+          <h2 id="welcomeTitle">Ward 44 Citizen Service Portal</h2>
+          <p>Indra Colony, Pali — आपकी समस्या, हमारी जिम्मेदारी.</p>
+        </section>
+        <section class="welcome-slide">
+          <div class="welcome-kicker">RAISE AN ISSUE</div>
+          <h2>Report it in a few simple steps</h2>
+          <p>Describe the problem, add GPS, and attach a photo or short video when useful.</p>
+        </section>
+        <section class="welcome-slide">
+          <div class="welcome-kicker">TRACK & FOLLOW UP</div>
+          <h2>Stay updated with your Complaint ID</h2>
+          <p>Register your issue and use the Complaint ID to check its latest status.</p>
+        </section>
+      </div>
+      <div class="welcome-dots" id="welcomeDots"><span class="active"></span><span></span><span></span></div>
+      <button id="welcomeStart" class="welcome-start" type="button">Continue to Ward 44 Portal →</button>
+    </div>
+  </div>
+
+  <div id="cameraModal" class="camera-modal hidden" aria-hidden="true">
+    <div class="camera-dialog">
+      <div class="camera-head"><strong id="cameraTitle">Camera</strong><button id="closeCamera" type="button" aria-label="Close">✕</button></div>
+      <video id="cameraPreview" autoplay muted playsinline></video>
+      <canvas id="cameraCanvas" class="hidden"></canvas>
+      <div id="cameraHint" class="camera-hint">Allow camera access when your browser asks.</div>
+      <div class="camera-controls">
+        <button id="takePhotoBtn" type="button" class="camera-action hidden">📷 Capture Photo</button>
+        <button id="startVideoBtn" type="button" class="camera-action hidden">● Start Video</button>
+        <button id="stopVideoBtn" type="button" class="camera-action danger hidden">■ Stop Video</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-const API_URL='https://script.google.com/macros/s/AKfycbxUuayaDo61nzwn7sTeInhw20XnCbXlvVKfwMZqZZNzwfH9RwAAGGU5AlA0iyjUuf61ig/exec';
+const API_URL='https://script.google.com/macros/s/AKfycbzvyQZsdZO5IM3-kMApnHlcyD-D8oQOC_BrGpjicHOFlMRkcaFju4xc6ie991Qp0WSpTQ/exec';
 const ADMIN_PIN='2580';
 let ADMIN_AUTH_TOKEN=sessionStorage.getItem('ward44_auth_token')||'';
 let ADMIN_OTP='';
